@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+//import './App.css';
 
 class App extends React.Component {
   state = {
@@ -63,7 +63,10 @@ class App extends React.Component {
           <ul>
               {
               this.state.recipes.map((rep, index) => (
-                <li>{ rep.name }</li>
+                <div>
+                <li>{ rep.name } </li>
+                  <p>{ rep.instructions } </p>
+                </div>
               ))
             }
           </ul> :

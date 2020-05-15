@@ -38,10 +38,12 @@ describe("Home page", () => {
     const addRecipeButton = cy.get('#add-recipe')
     addRecipeButton.click().then(() => {
       cy.get('input[name="newRecipeName"]').type("Tofu Scramble Tacos")
+      cy.get('textarea[name="newRecipeInstructions"]').type("1. heat a skillet on medium with a dollop of coconut oil {enter} 2. warm flour tortillas")
       cy.get('input[type="submit"]').click()
       cy.get('input[name="newRecipeName"]').clear()
 
       cy.get('input[name="newRecipeName"]').type("Beef Scramble Tacos")
+      cy.get('textarea[name="newRecipeInstructions"]').type("1. heat a skillet on medium with a dollop of coconut oil {enter} 2. warm flour tortillas")
       cy.get('input[type="submit"]').click()
       cy.get('ul').then(() => {
         cy.get('li').contains("Tofu Scramble Tacos")
