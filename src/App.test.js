@@ -98,3 +98,15 @@ test('recipe name from recipe in state appears in unordered list', () => {
   expect(wrapper.find('li')).toHaveLength(1)
   expect(wrapper.find('li').text()).toEqual("Lean Pockets")
 })
+
+test('recipe should show more than one item in unordered list', () => {
+  const wrapper = shallow(<App />)
+  const recipeName = "Lean Pockets"
+  const recipeInstructions = "cook"
+  const submittedRecipe = { name: recipeName, instructions: recipeInstructions }
+  
+  wrapper.setState({recipes: [submittedRecipe]})
+
+  expect(wrapper.find('li')).toHaveLength(2)
+  expect(wrapper.find('li').text()).toEqual("Lean Pockets")
+})

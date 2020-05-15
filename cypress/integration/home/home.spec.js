@@ -34,4 +34,14 @@ describe("Home page", () => {
       }) 
     }) 
   })
+  it("displays list of recipes under the 'My Recipes'", () => {
+    const addRecipeButton = cy.get('#add-recipe')
+    addRecipeButton.click().then(() => {
+      cy.get('input[name="newRecipeName"]').type("Tofu Scramble Tacos")
+      cy.get('input[type="submit"]').click()
+      cy.get('input[name="newRecipeName"]').type("Beef Scramble Tacos")
+      cy.get('input[type="submit"]').click()
+      cy.get('.list > li')
+    })
+  })
 })
