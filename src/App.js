@@ -64,7 +64,7 @@ class App extends React.Component {
               {
               this.state.recipes.map((rep, index) => (
                 <div>
-                <li>{ rep.name } </li>
+                  <li>{ rep.name } </li>
                   <p>{ rep.instructions } </p>
                 </div>
               ))
