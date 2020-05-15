@@ -39,9 +39,14 @@ describe("Home page", () => {
     addRecipeButton.click().then(() => {
       cy.get('input[name="newRecipeName"]').type("Tofu Scramble Tacos")
       cy.get('input[type="submit"]').click()
+      cy.get('input[name="newRecipeName"]').clear()
+
       cy.get('input[name="newRecipeName"]').type("Beef Scramble Tacos")
       cy.get('input[type="submit"]').click()
-      cy.get('.list > li')
+      cy.get('ul').then(() => {
+        cy.get('li').contains("Tofu Scramble Tacos")
+        cy.get('li').contains("Beef Scramble Tacos")
+      })
     })
   })
 })
